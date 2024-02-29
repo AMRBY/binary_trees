@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 /**
-* binary_tree_is_leaf - Binary tree node
+* binary_tree_is_root - Binary tree node
 * Description: insert a node
 * Return: void
 * @node: all the tree
