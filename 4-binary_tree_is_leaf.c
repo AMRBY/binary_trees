@@ -3,7 +3,7 @@
 * binary_tree_is_leaf - Binary tree node
 * Description: insert a node
 * Return: void
-* @tree: all the tree
+* @node: all the tree
 */
 int binary_tree_is_leaf(const binary_tree_t *node)
 {
