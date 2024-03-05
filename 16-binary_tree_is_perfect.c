@@ -14,10 +14,8 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	{
 		if (binary_tree_height(tree->right) == binary_tree_height(tree->left))
 			if (binary_tree_is_full(tree->right) && binary_tree_is_full(tree->left))
-			{
-				printf("%li == %li \n",binary_tree_height(tree->right), binary_tree_height(tree->left));
-				return (1);
-			}
+				if (binary_tree_size(tree->right) == binary_tree_size(tree->left))
+					return (1);
 	}
 	return (0);
 }
@@ -41,7 +39,6 @@ int binary_tree_is_full(const binary_tree_t *tree)
 	else
 		return (0);
 }
-#include "binary_trees.h"
 /**
 * binary_tree_height - Binary tree node
 * Description: insert a node
@@ -63,4 +60,23 @@ size_t binary_tree_height(const binary_tree_t *tree)
 		hr = binary_tree_height(tree->right) + 1;
 	}
 	return (hl >= hr ? hl : hr);
+}
+/**
+* binary_tree_size - Binary tree node
+* Description: insert a node
+* Return: void
+* @tree: all the tree
+*/
+size_t binary_tree_size(const binary_tree_t *tree)
+{
+	size_t r = 0, l = 0;
+
+	if (!tree)
+		return (0);
+	if (tree->left || tree->right)
+	{
+		r = binary_tree_size(tree->right);
+		l = binary_tree_size(tree->left);
+	}
+	return (l + r + 1);
 }
